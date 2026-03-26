@@ -718,6 +718,29 @@ table.data-table tr:nth-child(even) td { background: #fafaf8; }
 .org-cell:focus { background: #fffef5; }
 
 /* ── Barter Resource Cards ── */
+.map-figure {
+  margin: 0 0 1.25rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+  line-height: 0;
+}
+
+.map-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.map-figure figcaption {
+  background: #f0f0ee;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  padding: 0.35rem 0.75rem;
+  border-radius: 0 0 var(--radius) var(--radius);
+  line-height: 1.4;
+}
+
 .card-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
