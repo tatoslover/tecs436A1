@@ -319,8 +319,6 @@ main {
   font-size: 1.1rem;
   font-weight: 800;
   white-space: nowrap;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
 }
 
 .lesson-divider.l1 h2 { color: var(--lesson1); }
