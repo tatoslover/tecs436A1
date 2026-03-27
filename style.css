@@ -716,6 +716,67 @@ table.data-table tr:nth-child(even) td { background: #fafaf8; }
 .org-cell:focus { background: #fffef5; }
 
 /* ── Barter Resource Cards ── */
+/* ── Look–Feel–Tilt pills ── */
+.lft-strip {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.lft-pill {
+  flex: 1;
+  min-width: 80px;
+  text-align: center;
+  padding: 0.6rem 0.5rem;
+  border-radius: var(--radius);
+  border: 2px solid var(--border);
+  font-size: 0.78rem;
+}
+
+.lft-pill .lft-icon {
+  font-size: 1.3rem;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.lft-pill strong { display: block; font-size: 0.8rem; }
+.lft-pill span   { font-size: 0.72rem; color: var(--text-muted); }
+
+.lft-pill:nth-child(1) { border-color: #4a90d9; background: #f0f6ff; }
+.lft-pill:nth-child(2) { border-color: #00a550; background: #e6f7ee; }
+.lft-pill:nth-child(3) { border-color: #c9922a; background: #fdf6ec; }
+
+/* ── Evidence cards ── */
+.evidence-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+
+.evidence-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 0.4rem 0.75rem;
+  background: #fafafa;
+  border-bottom: 1px solid var(--border);
+}
+
+.evidence-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  cursor: zoom-in;
+  transition: opacity 0.15s;
+}
+
+.evidence-card img:hover { opacity: 0.85; }
+
+/* ── Map figure ── */
 .map-figure {
   margin: 0 0 1.25rem;
   border-radius: var(--radius);
