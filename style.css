@@ -933,6 +933,142 @@ table.data-table tr:nth-child(even) td { background: #fafaf8; }
 
 .evidence-card img:hover { opacity: 0.85; }
 
+/* ── Print supplements (trading tokens, note cutouts) ── */
+.print-supplement { display: none; }
+body.print-all .print-supplement { display: block; break-before: page; page-break-before: always; }
+
+/* ── Trading tokens (.tt-section) ── */
+.tt-section {
+  font-family: Georgia, serif;
+}
+.tt-section .tt-page-header {
+  text-align: center;
+  margin-bottom: 4mm;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+.tt-section .tt-page-header h1 {
+  font-size: 12pt;
+  color: #1e4d5c;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-bottom: 1.5mm;
+}
+.tt-section .tt-page-header p { font-size: 8pt; color: #888; }
+.tt-section .tt-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  margin: 0 auto;
+}
+.tt-section .token {
+  width: 100%;
+  height: 80mm;
+  border: 1px dashed #c0c0c0;
+  padding: 2.5mm;
+  background: white;
+  display: flex;
+}
+.tt-section .token-inner {
+  width: 100%;
+  border: 2px solid var(--accent, #888);
+  border-radius: 3.5mm;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+.tt-section .token-header {
+  width: 100%;
+  background: var(--accent, #888);
+  color: white;
+  text-align: center;
+  padding: 2mm 2mm 1.5mm;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.tt-section .token-art {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1mm;
+}
+.tt-section .token-art svg { width: 46mm; height: 46mm; }
+.tt-section .token-footer {
+  width: 100%;
+  border-top: 1.5px solid rgba(0,0,0,0.12);
+  padding: 2mm 2mm 2.5mm;
+  text-align: center;
+}
+.tt-section .tt-maori {
+  font-style: italic;
+  font-size: 9pt;
+  font-weight: bold;
+  color: var(--accent, #555);
+  line-height: 1.2;
+}
+.tt-section .tt-english {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 7pt;
+  color: #777;
+  margin-top: 0.8mm;
+}
+.tt-section .spare .token-inner {
+  border: 1.5px dashed #ccc;
+  align-items: center;
+  justify-content: center;
+}
+.tt-section .spare-label { font-family: Arial, sans-serif; font-size: 8pt; color: #bbb; }
+.tt-section .tt-tally {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 7.5pt;
+  color: #aaa;
+  padding: 3mm 0 2mm;
+  width: 100%;
+  margin: 0 auto;
+  border-top: 0.5px solid #ddd;
+}
+@media print {
+  .tt-section * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* ── Note cutout sheets (#note-cutouts) ── */
+@media print {
+  #note-cutouts { display: block; }
+  .cutout-sheet + .cutout-sheet { break-before: page; page-break-before: always; }
+
+  .cutout-sheet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 8mm 0;
+    box-sizing: border-box;
+  }
+
+  .cutout-label {
+    font-size: 9pt;
+    color: #666;
+    margin-bottom: 6mm;
+    text-align: center;
+  }
+
+  .cutout-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1.5px dashed #aaa;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
 /* ── Lightbox ── */
 .lightbox-overlay {
   display: none;
@@ -1447,16 +1583,18 @@ table.data-table tr:nth-child(even) td { background: #fafaf8; }
 
 /* ── Print / Save as PDF ── */
 @media print {
-  @page { size: A4; margin: 1.8cm 1.5cm; }
+  @page { size: A4; margin: 0; }
+  body { padding: 1.5cm; box-sizing: border-box; }
 
   /* Print one sheet */
   body.print-one > *:not(main) { display: none !important; }
   body.print-one main > section:not(.print-target),
   body.print-one main > .lesson-divider { display: none !important; }
-  .print-target { display: block !important; break-after: avoid; }
+  .print-target { display: block !important; }
 
   /* Print all */
   body.print-all nav { display: none !important; }
+  body.print-all .sheet { break-before: page; page-break-before: always; }
   body.print-all .lesson-divider { break-before: page; }
 
   /* Strip interactive chrome */

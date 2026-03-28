@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Barter Simulation — Trading Tokens (Part C of 3)</title>
+<style>
+  :root { --cut: #c0c0c0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: Georgia, serif;
+    background: #ede9e0;
+    padding: 5mm 0 4mm;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 4mm;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .page-header h1 { font-size: 12pt; color: #1e4d5c; font-weight: 600; letter-spacing: 0.04em; margin-bottom: 1.5mm; }
+  .page-header p  { font-size: 8pt; color: #888; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .token {
+    width: 100%;
+    height: 88mm;
+    border: 1px dashed var(--cut);
+    padding: 2.5mm;
+    background: white;
+    display: flex;
+  }
+
+  .token-inner {
+    width: 100%;
+    border: 2px solid var(--accent, #888);
+    border-radius: 3.5mm;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .token-header {
+    width: 100%;
+    background: var(--accent, #888);
+    color: white;
+    text-align: center;
+    padding: 2mm 2mm 1.5mm;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 7.5pt;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .token-art {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1mm;
+  }
+
+  .token-art svg { width: 46mm; height: 46mm; }
+
+  .token-footer {
+    width: 100%;
+    border-top: 1.5px solid rgba(0,0,0,0.12);
+    padding: 2mm 2mm 2.5mm;
+    text-align: center;
+  }
+
+  .maori   { font-style: italic; font-size: 10.5pt; font-weight: bold; color: var(--accent, #555); line-height: 1.2; }
+  .english { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 7pt; color: #777; margin-top: 0.8mm; }
+
+  .spare .token-inner { border: 1.5px dashed #ccc; align-items: center; justify-content: center; }
+  .spare-label { font-family: Arial, sans-serif; font-size: 8pt; color: #bbb; }
+
+  .tally {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 7.5pt;
+    color: #aaa;
+    padding: 3mm 0 2mm;
+    width: 100%;
+    margin: 0 auto;
+    border-top: 0.5px solid #ddd;
+  }
+
+  @media print {
+    body { background: white; padding: 1.5cm; box-sizing: border-box; }
+    @page { size: A4 portrait; margin: 0; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Barter Simulation — Trading Tokens &nbsp;(Part C of 3)</h1>
+  <p>Print on card stock if possible &nbsp;·&nbsp; Cut along dashed lines &nbsp;·&nbsp; Each group receives the tokens listed on their resource card</p>
+</div>
+
+<div class="grid" id="grid"></div>
+<div class="tally" id="tally"></div>
+
+<script>
+const svgs = {
+
+harakeke: `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <path d="M58,72 Q24,54 10,22" stroke="#1a5e35" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <path d="M62,72 Q96,52 110,20" stroke="#1a5e35" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <path d="M56,70 Q18,58 8,38" stroke="#229954" stroke-width="6.5" fill="none" stroke-linecap="round"/>
+  <path d="M64,70 Q102,56 112,36" stroke="#229954" stroke-width="6.5" fill="none" stroke-linecap="round"/>
+  <path d="M57,68 Q40,46 34,14" stroke="#27ae60" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <path d="M60,66 Q60,36 56,8" stroke="#2ecc71" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <path d="M63,68 Q80,46 86,14" stroke="#27ae60" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <path d="M56,70 Q40,50 35,18" stroke="#a9dfbf" stroke-width="1.5" fill="none" opacity="0.55" stroke-linecap="round"/>
+  <path d="M60,66 Q60,38 57,10" stroke="#a9dfbf" stroke-width="1.5" fill="none" opacity="0.55" stroke-linecap="round"/>
+  <path d="M64,68 Q80,50 84,18" stroke="#a9dfbf" stroke-width="1.5" fill="none" opacity="0.55" stroke-linecap="round"/>
+  <rect x="44" y="72" width="32" height="10" rx="5" fill="#7d5a0a" stroke="#5a3d06" stroke-width="1.5"/>
+  <path d="M46,76 Q60,82 74,76" stroke="#5a3d06" stroke-width="1.5" fill="none"/>
+  <rect x="53" y="82" width="14" height="28" rx="5" fill="#3d6b30" stroke="#2c4f22" stroke-width="1.5"/>
+</svg>`,
+
+huahua: `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <rect x="54" y="72" width="14" height="34" rx="7" fill="#e8d5a3" stroke="#b8935a" stroke-width="2"/>
+  <ellipse cx="61" cy="72" rx="10" ry="7" fill="#e8d5a3" stroke="#b8935a" stroke-width="2"/>
+  <ellipse cx="61" cy="106" rx="9" ry="6.5" fill="#e8d5a3" stroke="#b8935a" stroke-width="2"/>
+  <ellipse cx="61" cy="54" rx="28" ry="24" fill="#c0392b" stroke="#922b21" stroke-width="2.5"/>
+  <ellipse cx="50" cy="42" rx="13" ry="9" fill="#e74c3c" opacity="0.5" transform="rotate(-20,50,42)"/>
+  <path d="M40,42 Q55,36 72,44" stroke="#7b241c" stroke-width="1.2" fill="none" opacity="0.5" stroke-linecap="round"/>
+  <path d="M38,52 Q55,46 76,54" stroke="#7b241c" stroke-width="1.2" fill="none" opacity="0.45" stroke-linecap="round"/>
+  <path d="M42,62 Q58,58 76,64" stroke="#7b241c" stroke-width="1" fill="none" opacity="0.35" stroke-linecap="round"/>
+  <ellipse cx="46" cy="44" rx="7" ry="5" fill="white" opacity="0.18" transform="rotate(-25,46,44)"/>
+</svg>`
+
+};
+
+const tokens = [
+  { key:'harakeke', accent:'#2d5a27', maori:'Harakeke', english:'Flax · 1 bundle',            count:3 },
+  { key:'huahua',   accent:'#a93226', maori:'Huahua',   english:'Preserved kererū · 1 kete',  count:3 },
+];
+
+const grid = document.getElementById('grid');
+let rendered = 0;
+
+tokens.forEach(t => {
+  for (let i = 0; i < t.count; i++) {
+    const d = document.createElement('div');
+    d.className = 'token';
+    d.style.setProperty('--accent', t.accent);
+    d.innerHTML = `<div class="token-inner">
+      <div class="token-header">${t.maori}</div>
+      <div class="token-art">${svgs[t.key]}</div>
+      <div class="token-footer">
+        <div class="maori">${t.maori}</div>
+        <div class="english">${t.english}</div>
+      </div>
+    </div>`;
+    grid.appendChild(d);
+    rendered++;
+  }
+});
+
+// fill to complete last row of 3
+const fill = (3 - (rendered % 3)) % 3;
+for (let i = 0; i < fill; i++) {
+  const d = document.createElement('div');
+  d.className = 'token spare';
+  d.style.opacity = '0.2';
+  d.innerHTML = `<div class="token-inner"><span class="spare-label">✂</span></div>`;
+  grid.appendChild(d);
+}
+
+const total = tokens.reduce((s,t) => s+t.count, 0);
+document.getElementById('tally').textContent =
+  tokens.map(t=>`${t.maori} ×${t.count}`).join('  ·  ')
+  + `  —  ${total} tokens`;
+</script>
+</body>
+</html>

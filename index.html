@@ -68,47 +68,16 @@
                         </div>
                     </div>
 
-                    <div class="whakataukī-box">
-                        <p class="whakataukī-maori">
-                            Ko t&#333; ringa ki ng&#257; r&#257;kau &#257; t&#333; t&#299;puna
-                        </p>
-                        <p class="whakataukī-english">
-                            Your hand to the tools of your ancestors
-                        </p>
-                    </div>
-
                     <div class="objectives">
                         <h2>Learning Objectives</h2>
                         <p>By the end of this sequence you will be able to:</p>
                         <ol>
-                            <li>
-                                Describe how barter, koha, and modern currency
-                                represent different systems of exchange and the
-                                values that underpin them.
-                            </li>
-                            <li>
-                                Explain what makes an exchange fair, drawing on
-                                evidence from the barter simulation and class
-                                discussion.
-                            </li>
-                            <li>
-                                Identify and explain te ao M&#257;ori concepts —
-                                koha, utu, manaakitanga — and connect them to
-                                exchange practices past and present.
-                            </li>
-                            <li>
-                                Recognise common online threats to financial
-                                safety, including phishing, scam websites, and
-                                fraudulent listings.
-                            </li>
-                            <li>
-                                Apply the Look–Check–Pause framework to evaluate
-                                digital communications and transactions.
-                            </li>
-                            <li>
-                                Know where to seek help if you encounter a
-                                suspicious or unsafe digital interaction.
-                            </li>
+                            <li>Describe barter, koha, and modern currency as different systems of exchange.</li>
+                            <li>Explain what makes an exchange fair, using evidence from the simulation.</li>
+                            <li>Connect koha, utu, and manaakitanga to exchange practices past and present.</li>
+                            <li>Recognise online threats including phishing, scam websites, and fraudulent listings.</li>
+                            <li>Apply the Look–Check–Pause framework to digital communications.</li>
+                            <li>Know where to get help if you encounter a suspicious digital interaction.</li>
                         </ol>
                     </div>
 
@@ -162,6 +131,13 @@
                         >
                             &#8681; Download full resource as PDF
                         </button>
+                        <button
+                            class="print-btn screen-only"
+                            data-sheet="cutouts"
+                            style="margin-top: 0.5rem"
+                        >
+                            &#9988; Download cutout resources as PDF
+                        </button>
                     </div>
                 </div>
             </section>
@@ -190,6 +166,15 @@
                         Lesson 1 &mdash; Keep this sheet out throughout the
                         lesson as a reference.
                     </p>
+
+                    <div class="whakataukī-box">
+                        <p class="whakataukī-maori">
+                            Ko t&#333; ringa ki ng&#257; r&#257;kau &#257; t&#333; t&#299;puna
+                        </p>
+                        <p class="whakataukī-english">
+                            Your hand to the tools of your ancestors
+                        </p>
+                    </div>
 
                     <div class="reference-strip">
                         <p class="reference-strip-label">Key Concepts</p>
@@ -598,6 +583,36 @@
                         How might koha or community obligation address this?
                     </div>
                 </div>
+            </section>
+
+            <!-- TRADING TOKENS — print supplement for Sheet 2 (Part A) -->
+            <section id="trading-tokens-a" class="print-supplement tt-section">
+                <div class="tt-page-header">
+                    <h1>Barter Simulation &mdash; Trading Tokens &nbsp;(Part A of 3)</h1>
+                    <p>Print on card stock if possible &nbsp;&middot;&nbsp; Cut along dashed lines &nbsp;&middot;&nbsp; Each group receives the tokens listed on their resource card</p>
+                </div>
+                <div class="tt-grid" id="tt-grid-a"></div>
+                <div class="tt-tally" id="tt-tally-a"></div>
+            </section>
+
+            <!-- TRADING TOKENS — print supplement (Part B) -->
+            <section id="trading-tokens-b" class="print-supplement tt-section">
+                <div class="tt-page-header">
+                    <h1>Barter Simulation &mdash; Trading Tokens &nbsp;(Part B of 3)</h1>
+                    <p>Print on card stock if possible &nbsp;&middot;&nbsp; Cut along dashed lines &nbsp;&middot;&nbsp; Each group receives the tokens listed on their resource card</p>
+                </div>
+                <div class="tt-grid" id="tt-grid-b"></div>
+                <div class="tt-tally" id="tt-tally-b"></div>
+            </section>
+
+            <!-- TRADING TOKENS — print supplement (Part C) -->
+            <section id="trading-tokens-c" class="print-supplement tt-section">
+                <div class="tt-page-header">
+                    <h1>Barter Simulation &mdash; Trading Tokens &nbsp;(Part C of 3)</h1>
+                    <p>Print on card stock if possible &nbsp;&middot;&nbsp; Cut along dashed lines &nbsp;&middot;&nbsp; Each group receives the tokens listed on their resource card</p>
+                </div>
+                <div class="tt-grid" id="tt-grid-c"></div>
+                <div class="tt-tally" id="tt-tally-c"></div>
             </section>
 
             <!-- ============================================================
@@ -1066,6 +1081,22 @@
                         contenteditable="true"
                         data-placeholder="Write your discussion here…"
                     ></div>
+                </div>
+            </section>
+
+            <!-- NOTE CUTOUTS — print supplement for Sheet 5 -->
+            <section id="note-cutouts" class="print-supplement">
+                <div class="cutout-sheet">
+                    <p class="cutout-label">&#9988; Evidence Set A &mdash; $20 &amp; $10 &nbsp;|&nbsp; Print at 100% scale for life-sized notes</p>
+                    <img src="note-fake-1.png" alt="Fake $20 and $10 notes" class="cutout-img">
+                </div>
+                <div class="cutout-sheet">
+                    <p class="cutout-label">&#9988; Evidence Set B &mdash; $5 &amp; $50 &nbsp;|&nbsp; Print at 100% scale for life-sized notes</p>
+                    <img src="note-fake-2.png" alt="Fake $5 and $50 notes" class="cutout-img">
+                </div>
+                <div class="cutout-sheet">
+                    <p class="cutout-label">&#9988; Evidence Set C &mdash; $100 &nbsp;|&nbsp; Print at 100% scale for life-sized notes</p>
+                    <img src="note-fake-3.png" alt="Fake $100 note" class="cutout-img">
                 </div>
             </section>
 
@@ -2192,22 +2223,43 @@
 
         <script>
             (function () {
+                var supplements = {};
                 document.querySelectorAll(".print-btn").forEach(function (btn) {
                     btn.addEventListener("click", function () {
                         if (btn.dataset.sheet === "all") {
                             document.body.classList.add("print-all");
                             window.print();
                             document.body.classList.remove("print-all");
+                        } else if (btn.dataset.sheet === "cutouts") {
+                            var cutoutIds = ['trading-tokens-a', 'trading-tokens-b', 'trading-tokens-c', 'note-cutouts'];
+                            var cutoutEls = cutoutIds.map(function (id) { return document.getElementById(id); }).filter(Boolean);
+                            cutoutEls.forEach(function (el, i) {
+                                el.classList.add("print-target");
+                                if (i > 0) el.style.breakBefore = 'page';
+                            });
+                            document.body.classList.add("print-one");
+                            var savedPadding = document.body.style.padding;
+                            document.body.style.padding = '0';
+                            window.print();
+                            document.body.style.padding = savedPadding;
+                            document.body.classList.remove("print-one");
+                            cutoutEls.forEach(function (el, i) {
+                                el.classList.remove("print-target");
+                                if (i > 0) el.style.breakBefore = '';
+                            });
                         } else {
-                            var target = document.getElementById(
-                                btn.dataset.sheet,
-                            );
+                            var target = document.getElementById(btn.dataset.sheet);
                             if (!target) return;
+                            var extras = (supplements[btn.dataset.sheet] || [])
+                                .map(function (id) { return document.getElementById(id); })
+                                .filter(Boolean);
                             target.classList.add("print-target");
+                            extras.forEach(function (el) { el.classList.add("print-target"); });
                             document.body.classList.add("print-one");
                             window.print();
                             document.body.classList.remove("print-one");
                             target.classList.remove("print-target");
+                            extras.forEach(function (el) { el.classList.remove("print-target"); });
                         }
                     });
                 });
@@ -2243,6 +2295,71 @@
                 document.addEventListener('keydown', function (e) {
                     if (e.key === 'Escape') closeLightbox();
                 });
+            })();
+
+            /* ── Trading tokens ── */
+            (function () {
+                var svgs = {
+                    kaimoana: '<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><g transform="translate(6,18) rotate(-10)"><ellipse cx="36" cy="14" rx="28" ry="11" fill="#2471a3"/><polygon points="64,14 80,6 80,22" fill="#1a5276"/><circle cx="16" cy="11" r="3.2" fill="white"/><circle cx="16" cy="11" r="1.5" fill="#0d2f45"/><path d="M38,6 Q48,4 56,8" stroke="#5dade2" stroke-width="1.4" fill="none"/><path d="M38,22 Q48,24 56,20" stroke="#5dade2" stroke-width="1.4" fill="none"/></g><g transform="translate(12,50) rotate(7)"><ellipse cx="32" cy="12" rx="25" ry="10" fill="#1a6fa0"/><polygon points="57,12 72,5 72,19" fill="#154e78"/><circle cx="14" cy="10" r="2.8" fill="white"/><circle cx="14" cy="10" r="1.2" fill="#0d2f45"/><path d="M34,5 Q43,3 50,7" stroke="#7fb3d3" stroke-width="1.3" fill="none"/></g><g transform="translate(4,80) rotate(-5)"><ellipse cx="34" cy="12" rx="27" ry="10" fill="#5b9fc2"/><polygon points="61,12 76,5 76,19" fill="#2471a3"/><circle cx="15" cy="10" r="2.8" fill="white"/><circle cx="15" cy="10" r="1.2" fill="#0d2f45"/></g><path d="M8,110 Q35,106 60,110 Q85,114 112,110" stroke="#aed6f1" stroke-width="1.5" fill="none" opacity="0.45"/></svg>',
+                    kumara:   '<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><path d="M22,92 Q18,74 20,56 Q22,40 60,37 Q98,40 100,56 Q102,74 98,92 Z" fill="#c9a35a" stroke="#7d5a0a" stroke-width="2"/><path d="M21,74 Q60,70 99,74" stroke="#7d5a0a" stroke-width="1.2" fill="none" opacity="0.55"/><path d="M20,63 Q60,59 100,63" stroke="#7d5a0a" stroke-width="1.2" fill="none" opacity="0.55"/><path d="M21,52 Q60,48 99,52" stroke="#7d5a0a" stroke-width="1.2" fill="none" opacity="0.45"/><line x1="38" y1="38" x2="30" y2="91" stroke="#7d5a0a" stroke-width="1" opacity="0.3"/><line x1="60" y1="37" x2="60" y2="92" stroke="#7d5a0a" stroke-width="1" opacity="0.3"/><line x1="82" y1="38" x2="90" y2="91" stroke="#7d5a0a" stroke-width="1" opacity="0.3"/><ellipse cx="60" cy="92" rx="38" ry="8" fill="#c9a35a" stroke="#7d5a0a" stroke-width="2"/><ellipse cx="42" cy="66" rx="17" ry="10" fill="#a93226" stroke="#7b2119" stroke-width="1.5" transform="rotate(-18,42,66)"/><ellipse cx="66" cy="61" rx="16" ry="9.5" fill="#c0392b" stroke="#922b21" stroke-width="1.5" transform="rotate(12,66,61)"/><ellipse cx="54" cy="50" rx="14" ry="8.5" fill="#a93226" stroke="#7b2119" stroke-width="1.5" transform="rotate(-5,54,50)"/></svg>',
+                    pounamu:  '<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="jade" cx="38%" cy="32%" r="62%"><stop offset="0%" stop-color="#a9dfbf"/><stop offset="35%" stop-color="#27ae60"/><stop offset="75%" stop-color="#1e8449"/><stop offset="100%" stop-color="#0b5c2e"/></radialGradient></defs><path d="M42,22 Q28,18 20,32 Q12,46 16,64 Q20,80 32,90 Q46,100 62,98 Q78,96 88,84 Q98,70 96,54 Q94,38 82,28 Q70,18 54,20 Q48,21 42,22 Z" fill="url(#jade)" stroke="#0b5c2e" stroke-width="2"/><path d="M36,38 Q52,32 68,40 Q80,48 78,64" stroke="#145a32" stroke-width="1.5" fill="none" opacity="0.45" stroke-linecap="round"/><path d="M26,56 Q40,50 58,54 Q70,58 72,70" stroke="#1d8348" stroke-width="1" fill="none" opacity="0.35" stroke-linecap="round"/><path d="M30,72 Q44,68 56,74" stroke="#145a32" stroke-width="1" fill="none" opacity="0.3"/><circle cx="56" cy="30" r="4" fill="#0a3d1f" stroke="#0b5c2e" stroke-width="1"/><circle cx="56" cy="30" r="1.8" fill="#d5f5e3" opacity="0.5"/><ellipse cx="40" cy="40" rx="10" ry="6" fill="white" opacity="0.22" transform="rotate(-30,40,40)"/><path d="M30,38 Q38,34 44,40" stroke="white" stroke-width="1.5" fill="none" opacity="0.3" stroke-linecap="round"/></svg>',
+                    mata:     '<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="obs" cx="32%" cy="28%" r="68%"><stop offset="0%" stop-color="#7f8c8d"/><stop offset="45%" stop-color="#2c3e50"/><stop offset="100%" stop-color="#17202a"/></radialGradient></defs><path d="M60,12 L88,30 L96,55 L90,76 L74,92 L52,94 L32,84 L22,64 L24,42 L40,26 Z" fill="url(#obs)" stroke="#5d6d7e" stroke-width="1.5"/><path d="M60,12 Q74,32 80,54 Q84,72 74,92" stroke="#7f8c8d" stroke-width="0.8" fill="none" opacity="0.45"/><path d="M60,12 Q46,30 38,52 Q32,68 32,84" stroke="#7f8c8d" stroke-width="0.8" fill="none" opacity="0.45"/><path d="M40,26 Q60,36 96,55" stroke="#aab7b8" stroke-width="0.7" fill="none" opacity="0.35"/><path d="M24,42 Q52,50 96,55" stroke="#aab7b8" stroke-width="0.6" fill="none" opacity="0.25"/><path d="M22,64 Q46,66 90,76" stroke="#aab7b8" stroke-width="0.6" fill="none" opacity="0.25"/><path d="M48,18 Q66,24 74,38" stroke="white" stroke-width="2.2" fill="none" opacity="0.28" stroke-linecap="round"/><path d="M42,28 Q52,32 58,42" stroke="white" stroke-width="1.5" fill="none" opacity="0.18" stroke-linecap="round"/><line x1="88" y1="30" x2="96" y2="55" stroke="white" stroke-width="1.2" opacity="0.35"/></svg>',
+                    harakeke: '<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><path d="M58,72 Q24,54 10,22" stroke="#1a5e35" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M62,72 Q96,52 110,20" stroke="#1a5e35" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M56,70 Q18,58 8,38" stroke="#229954" stroke-width="6.5" fill="none" stroke-linecap="round"/><path d="M64,70 Q102,56 112,36" stroke="#229954" stroke-width="6.5" fill="none" stroke-linecap="round"/><path d="M57,68 Q40,46 34,14" stroke="#27ae60" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M60,66 Q60,36 56,8" stroke="#2ecc71" stroke-width="8" fill="none" stroke-linecap="round"/><path d="M63,68 Q80,46 86,14" stroke="#27ae60" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M56,70 Q40,50 35,18" stroke="#a9dfbf" stroke-width="1.5" fill="none" opacity="0.55" stroke-linecap="round"/><path d="M60,66 Q60,38 57,10" stroke="#a9dfbf" stroke-width="1.5" fill="none" opacity="0.55" stroke-linecap="round"/><path d="M64,68 Q80,50 84,18" stroke="#a9dfbf" stroke-width="1.5" fill="none" opacity="0.55" stroke-linecap="round"/><rect x="44" y="72" width="32" height="10" rx="5" fill="#7d5a0a" stroke="#5a3d06" stroke-width="1.5"/><path d="M46,76 Q60,82 74,76" stroke="#5a3d06" stroke-width="1.5" fill="none"/><rect x="53" y="82" width="14" height="28" rx="5" fill="#3d6b30" stroke="#2c4f22" stroke-width="1.5"/></svg>',
+                    huahua:   '<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><rect x="54" y="72" width="14" height="34" rx="7" fill="#e8d5a3" stroke="#b8935a" stroke-width="2"/><ellipse cx="61" cy="72" rx="10" ry="7" fill="#e8d5a3" stroke="#b8935a" stroke-width="2"/><ellipse cx="61" cy="106" rx="9" ry="6.5" fill="#e8d5a3" stroke="#b8935a" stroke-width="2"/><ellipse cx="61" cy="54" rx="28" ry="24" fill="#c0392b" stroke="#922b21" stroke-width="2.5"/><ellipse cx="50" cy="42" rx="13" ry="9" fill="#e74c3c" opacity="0.5" transform="rotate(-20,50,42)"/><path d="M40,42 Q55,36 72,44" stroke="#7b241c" stroke-width="1.2" fill="none" opacity="0.5" stroke-linecap="round"/><path d="M38,52 Q55,46 76,54" stroke="#7b241c" stroke-width="1.2" fill="none" opacity="0.45" stroke-linecap="round"/><path d="M42,62 Q58,58 76,64" stroke="#7b241c" stroke-width="1" fill="none" opacity="0.35" stroke-linecap="round"/><ellipse cx="46" cy="44" rx="7" ry="5" fill="white" opacity="0.18" transform="rotate(-25,46,44)"/></svg>'
+                };
+                var tokenSets = {
+                    a: [
+                        { key:'kaimoana', accent:'#1a5276', maori:'Kaimoana',   english:'Seafood \u00b7 1 bundle',            count:4 },
+                        { key:'kumara',   accent:'#935e0a', maori:'K\u016bmara', english:'Sweet potato \u00b7 1 basket',       count:5 }
+                    ],
+                    b: [
+                        { key:'pounamu',  accent:'#0e6b38', maori:'Pounamu',    english:'Greenstone \u00b7 1 piece',           count:2 },
+                        { key:'mata',     accent:'#4a4235', maori:'Mat\u0101',   english:'Obsidian \u00b7 1 piece',             count:6 },
+                        { key:'harakeke', accent:'#2d5a27', maori:'Harakeke',   english:'Flax \u00b7 1 bundle',                count:1 }
+                    ],
+                    c: [
+                        { key:'harakeke', accent:'#2d5a27', maori:'Harakeke',   english:'Flax \u00b7 1 bundle',                count:3 },
+                        { key:'huahua',   accent:'#a93226', maori:'Huahua',     english:'Preserved kerer\u016b \u00b7 1 kete', count:3 }
+                    ]
+                };
+
+                function renderTokens(tokens, gridId, tallyId) {
+                    var grid = document.getElementById(gridId);
+                    if (!grid) return;
+                    var rendered = 0;
+                    tokens.forEach(function (t) {
+                        for (var i = 0; i < t.count; i++) {
+                            var d = document.createElement('div');
+                            d.className = 'token';
+                            d.style.setProperty('--accent', t.accent);
+                            d.innerHTML = '<div class="token-inner">'
+                                + '<div class="token-header">' + t.maori + '</div>'
+                                + '<div class="token-art">' + svgs[t.key] + '</div>'
+                                + '<div class="token-footer">'
+                                + '<div class="tt-maori">' + t.maori + '</div>'
+                                + '<div class="tt-english">' + t.english + '</div>'
+                                + '</div></div>';
+                            grid.appendChild(d);
+                            rendered++;
+                        }
+                    });
+                    var fill = (3 - (rendered % 3)) % 3;
+                    for (var i = 0; i < fill; i++) {
+                        var d = document.createElement('div');
+                        d.className = 'token spare';
+                        d.style.opacity = '0.2';
+                        d.innerHTML = '<div class="token-inner"><span class="spare-label">&#9988;</span></div>';
+                        grid.appendChild(d);
+                    }
+                    var total = tokens.reduce(function (s, t) { return s + t.count; }, 0);
+                    document.getElementById(tallyId).textContent =
+                        tokens.map(function (t) { return t.maori + ' \u00d7' + t.count; }).join('  \u00b7  ')
+                        + '  \u2014  ' + total + ' tokens';
+                }
+
+                renderTokens(tokenSets.a, 'tt-grid-a', 'tt-tally-a');
+                renderTokens(tokenSets.b, 'tt-grid-b', 'tt-tally-b');
+                renderTokens(tokenSets.c, 'tt-grid-c', 'tt-tally-c');
             })();
 
             /* ── Note Investigator: Check answers ── */
