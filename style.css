@@ -934,8 +934,8 @@ table.data-table tr:nth-child(even) td { background: #fafaf8; }
 .evidence-card img:hover { opacity: 0.85; }
 
 /* ── Print supplements (trading tokens, note cutouts) ── */
+/* Cutout supplements are never included in the main print-all download */
 .print-supplement { display: none; }
-body.print-all .print-supplement { display: block; break-before: page; page-break-before: always; }
 
 /* ── Trading tokens (.tt-section) ── */
 .tt-section {
@@ -1038,7 +1038,7 @@ body.print-all .print-supplement { display: block; break-before: page; page-brea
 
 /* ── Note cutout sheets (#note-cutouts) ── */
 @media print {
-  #note-cutouts { display: block; }
+  /* #note-cutouts is a .print-supplement — shown only when .print-target is set by JS */
   .cutout-sheet + .cutout-sheet { break-before: page; page-break-before: always; }
 
   .cutout-sheet {
@@ -1595,10 +1595,10 @@ body.print-all .print-supplement { display: block; break-before: page; page-brea
   /* Print all */
   body.print-all nav { display: none !important; }
   body.print-all .sheet { break-before: page; page-break-before: always; }
-  body.print-all .lesson-divider { break-before: page; }
+  body.print-all .lesson-divider { display: none; }
 
   /* Strip interactive chrome */
-  .print-btn, details.hint-details, .lightbox-overlay { display: none !important; }
+  .print-btn, details.hint-details, details.ni-hint, .lightbox-overlay { display: none !important; }
 
   /* Full-width layout */
   main { max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
